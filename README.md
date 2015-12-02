@@ -5,7 +5,13 @@ This is how I get into the holiday spirit.
 
 ## Solutions
    
-> `S` is the input string
+> In the following, `S` is the input string in an explicitly-defined J noun, i.e:
+> 
+>     S =: 0 : 0
+>     1x3x3
+>     2x5x10
+>     NB. and so on...
+>     )
 
 1a:
 
