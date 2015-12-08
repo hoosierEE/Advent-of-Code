@@ -7,4 +7,9 @@ NB. usage:
 NB. wop dbl vos s NB. verb order doesn't matter
 
 NB. part 2 (unfinished)
-(}:-}.)~:2<\'xyabcdxy' NB. location of repeated pairs
+NB. nice strings have:
+NB. 1. at least 1 double pair that's not itself a triple (e.g. 'aaa')
+NB. 2. a 'bookended' letter (e.g. 'aba' or 'bbb')
+double_pairs =: NB. return double pairs to later test against triple
+triplets =: 3 : '({.p){~I.=/p=.2<\"1(y,:(1|.y))'
+matched_ends =: {.={: NB. use on triplets
