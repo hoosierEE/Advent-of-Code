@@ -4,6 +4,7 @@ NB. Transform input into J code...
 
 off =: ('turn off';'0') rplc~ ]
 on =: ('turn on';'1') rplc~ ]
+
 toggle =: 3 : 0
 if. 'toggle' +./@E. y do.
     mid =. ('toggle';'') rplc~ y
@@ -14,6 +15,27 @@ if. 'toggle' +./@E. y do.
 elseif. do.
     y
 end.
+)
+
+off2 =: 3 : 0
+if. 'turn off'+./@E. y do.
+mid =. ('turn off';'')rplc~y NB. remove the word from the string
+'(_1+',mid,'{arg)',mid
+elseif. do. y end.
+)
+
+on2 =: 3 : 0
+if. 'turn on'+./@E. y do.
+mid =. ('turn on';'')rplc~y NB. remove the word from the string
+'(1+',mid,'{arg)',mid
+elseif. do. y end.
+)
+
+tog2 =: 3 : 0
+if. 'toggle'+./@E. y do.
+mid =. ('toggle';'')rplc~y NB. remove the word from the string
+'(2+',mid,'{arg)',mid
+elseif. do. y end.
 )
 
 inplace =: 3 : 0
@@ -49,5 +71,6 @@ spl =: 4 : 0
 
 NB. modify script and run result
 arg =: 1000 1000 $ 0 NB. start with all lights off
-result =: inplace@on@off@toggle@pm every cutLF ', 'charsub s
+NB. result =: inplace@on@off@toggle@pm every cutLF ', 'charsub s
+result2 =: inplace@on2@off2@tog2@pm every cutLF ', 'charsub s
 answer =: +/,arg
